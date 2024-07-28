@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- NoArgs: Basic Constructor -->
+    <bean id="emptyObject" class="NoArgs.Constructor.EmptyObject" />
+
+    <!-- NoArgs: Static Factory Method -->
+    <bean id="clientService" class="NoArgs.StaticFactoryMethod.ClientService" factory-method="getInstance" />
+
+    <!-- NoArgs: Factory Method -->
+    <bean id="serviceFactory" class="NoArgs.FactoryMethod.ServiceFactory" />
+    <bean id="userService" factory-bean="serviceFactory" factory-method="createUserService" />
+    <bean id="loginService" factory-bean="serviceFactory" factory-method="createLoginService" />
+
+    <!-- WithArgs: Basic Constructor -->
+
+</beans>
