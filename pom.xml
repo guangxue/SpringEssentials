@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.guangxuezhang</groupId>
-    <artifactId>JavaSpringEssentials</artifactId>
+    <artifactId>SpringEssentials</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>01_SpringXML_IoC</module>
+        <module>02_SpringXML_DI</module>
     </modules>
-
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>
