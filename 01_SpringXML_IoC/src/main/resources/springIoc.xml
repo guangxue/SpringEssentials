@@ -3,17 +3,33 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- NoArgs: Basic Constructor -->
+    <!-- [01] NoArgs: Basic Constructor -->
     <bean id="emptyObject" class="NoArgs.Constructor.EmptyObject" />
 
-    <!-- NoArgs: Static Factory Method -->
+    <!-- [02] NoArgs: Static Factory Method -->
     <bean id="clientService" class="NoArgs.StaticFactoryMethod.ClientService" factory-method="getInstance" />
 
-    <!-- NoArgs: Factory Method -->
+    <!-- [03] NoArgs: Factory Method -->
     <bean id="serviceFactory" class="NoArgs.FactoryMethod.ServiceFactory" />
     <bean id="userService" factory-bean="serviceFactory" factory-method="createUserService" />
     <bean id="loginService" factory-bean="serviceFactory" factory-method="createLoginService" />
 
-    <!-- WithArgs: Basic Constructor -->
+    <!-- [04] WithArgs: Basic Constructor -->
+    <bean id="argObject"  class="WithArgs.Constructor.ArgObject">
+        <constructor-arg name="name" value="constructor_with_args"/>
+    </bean>
 
+    <!-- [05] WithArgs: Static Factory Method -->
+    <bean id="argClientService" class="WithArgs.StaticFactoryMethod.ArgClientService" factory-method="getNamedClientService">
+        <constructor-arg value="user_client_service" />
+    </bean>
+
+    <!-- [06] WithArgs: Factory Method -->
+    <bean id="argServiceFactory" class="WithArgs.FactoryMethod.ArgServiceFactory" />
+    <bean id="argUserService" factory-bean="argServiceFactory" factory-method="getArgUserService">
+        <constructor-arg value="Guangxue"/>
+    </bean>
+    <bean id="argLoginService" factory-bean="argServiceFactory" factory-method="getArgLoginService">
+        <constructor-arg value="guazhg90" />
+    </bean>
 </beans>

@@ -1,15 +1,18 @@
+import WithArgs.Constructor.ArgObject;
+import WithArgs.FactoryMethod.ArgLoginService;
+import WithArgs.FactoryMethod.ArgUserService;
+import WithArgs.StaticFactoryMethod.ArgClientService;
+import org.junit.jupiter.api.Test;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import NoArgs.FactoryMethod.LoginService;
 import NoArgs.FactoryMethod.UserService;
 import NoArgs.Constructor.EmptyObject;
 import NoArgs.StaticFactoryMethod.ClientService;
-import WithArgs.Constructor.NamedObject;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringIocTest {
 
-    private ClassPathXmlApplicationContext beans= new ClassPathXmlApplicationContext("springIoc.xml");
+    private final ClassPathXmlApplicationContext beans = new ClassPathXmlApplicationContext("springIoc.xml");
 
     @Test
     public void NoArgsConstructorTest() {
@@ -33,8 +36,23 @@ public class SpringIocTest {
 
     @Test
     public void WithArgsConstructorTest() {
-        NamedObject namedObject = beans.getBean("namedObject", NamedObject.class);
-        namedObject.test();
+        ArgObject argObject = beans.getBean("namedObject", ArgObject.class);
+        argObject.test();
+    }
+
+    @Test
+    public void WithArgsStaticFactoryMethodTest() {
+        ArgClientService argClientService = beans.getBean("namedClientService", ArgClientService.class);
+        argClientService.test();
+    }
+
+    @Test
+    public void WithArgsFactoryMethodTest() {
+        ArgUserService  argUserService = beans.getBean("argUserService", ArgUserService.class);
+        argUserService.test();
+
+        ArgLoginService argLoginService = beans.getBean("argLoginService", ArgLoginService.class);
+        argLoginService.test();
     }
 
 }
