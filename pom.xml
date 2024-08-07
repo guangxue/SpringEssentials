@@ -9,8 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>01_SpringXML_IoC</module>
-        <module>02_SpringXML_DI</module>
+        <module>01_XMLBased</module>
+        <module>02_AnnotationBased</module>
+        <module>01_XMLBased/IoC_Configuration</module>
+        <module>01_XMLBased/DI_Configuration</module>
     </modules>
     <properties>
         <maven.compiler.source>22</maven.compiler.source>

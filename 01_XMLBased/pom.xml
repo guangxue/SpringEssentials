@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>02_SpringXML_DI</artifactId>
+    <artifactId>01_XMLBased</artifactId>
 
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
